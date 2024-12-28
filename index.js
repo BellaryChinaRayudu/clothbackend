@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import { signIn } from "./controllers/login.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -11,6 +12,8 @@ import { getProducts, createProduct } from "./controllers/products.js";
 const app = express();
 
 const port = process.env.PORT || 8000;
+
+app.use(cors());
 
 const connectToDb = async () => {
   mongoose
