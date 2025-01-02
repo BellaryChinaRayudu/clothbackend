@@ -23,7 +23,7 @@ export const createProduct = async (req, res) => {
 export const deleteProduct = async (req, res) => {
   const id = req.body.id;
 
-  const r = Product.findByIdAndDelete({ id });
+  const r = await Product.findByIdAndDelete(id);
 
   res.status(200).json("product deleted successfully");
 };
