@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import { deleteProduct } from "./controllers/products.js";
 
 import { signIn } from "./controllers/login.js";
 import cors from "cors";
@@ -37,6 +38,7 @@ app.get("/test", (req, res) => {
 app.post("/api/create", createProduct);
 app.post("/api/getProducts", getProducts);
 app.post("/api/login", signIn);
+app.delete("/api/deleteProduct", deleteProduct);
 
 app.listen(port, () => {
   console.log("connected successfully on port", port);
